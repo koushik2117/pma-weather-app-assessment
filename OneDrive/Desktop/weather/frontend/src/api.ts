@@ -111,7 +111,7 @@ export const getWeatherByCity = async (city: string): Promise<WeatherData> => {
                 const zipCode = zipMatch[1];
                 const countryCode = zipMatch[2] ? `,${zipMatch[2]}` : ',US'; // Default to US if not provided
                 const geoResponse = await fetch(
-                    `http://api.openweathermap.org/geo/1.0/zip?zip=${zipCode}${countryCode}&appid=${API_KEY}`
+                    `https://api.openweathermap.org/geo/1.0/zip?zip=${zipCode}${countryCode}&appid=${API_KEY}`
                 );
 
                 if (!geoResponse.ok) {
@@ -126,7 +126,7 @@ export const getWeatherByCity = async (city: string): Promise<WeatherData> => {
             } else {
                 // Otherwise treat as City name
                 const geoResponse = await fetch(
-                    `http://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(city)}&limit=1&appid=${API_KEY}`
+                    `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(city)}&limit=1&appid=${API_KEY}`
                 );
 
                 if (!geoResponse.ok) {
@@ -204,7 +204,7 @@ export const getWeatherByCoords = async (lat: number, lon: number): Promise<Weat
     try {
         // First, get city name from coordinates (reverse geocoding)
         const geoResponse = await fetch(
-            `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${API_KEY}`
+            `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${API_KEY}`
         );
 
         if (!geoResponse.ok) {
