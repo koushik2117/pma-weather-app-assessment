@@ -1,6 +1,6 @@
 import { getWeatherByCity, getWeatherByCoords, WeatherData } from './api';
-import React, { useEffect, useState } from 'react';
-import { Search, MapPin, Navigation, Droplets, Wind, Thermometer, Sun, Moon, Cloud, CloudRain, Snowflake } from 'lucide-react';
+import React, { useState } from 'react';
+import { Search, MapPin, Navigation, Droplets, Wind, Thermometer } from 'lucide-react';
 import { format } from 'date-fns';
 
 const WeatherIcon = ({ iconCode, className = "w-8 h-8" }: { iconCode: string, className?: string }) => {
